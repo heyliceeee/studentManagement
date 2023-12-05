@@ -177,3 +177,23 @@ void removeStudents(Students *students)
         puts(ERROR_NO_EXISTS_STUDENT);
     }
 }
+
+
+/**
+ * print students
+ * @param students students list
+ */
+void printStudents(Students students)
+{
+    if(students.count > 0)
+    {
+        for(int i=0; i < students.count; i++)
+        {
+            printStudent(students.students[i]);
+        }
+    }
+    else
+    {
+        puts(ERROR_EMPTY_LIST);
+    }
+}
