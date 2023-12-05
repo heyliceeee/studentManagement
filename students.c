@@ -151,3 +151,29 @@ void updateStudents(Students *students)
         puts(ERROR_NO_EXISTS_STUDENT);
     }
 }
+
+
+/**
+ * check if student exists and remove
+ * @param students students list
+ */
+void removeStudents(Students *students)
+{
+    int i, number = findStudent(*students, getInt(MIN_STUDENT_NUM, MAX_STUDENT_NUM, MSG_GET_STUDENT_NUM));
+
+    if(number != -1)
+    {
+        for(i=0; i < (*students).count - 1; i++)
+        {
+            (*students).students[i] = (*students).students[i+1];
+        }
+
+        removeStudentData(&(*students).students[i]);
+
+        (*students).count --;
+    }
+    else
+    {
+        puts(ERROR_NO_EXISTS_STUDENT);
+    }
+}
