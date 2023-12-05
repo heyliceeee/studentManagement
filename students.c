@@ -116,7 +116,7 @@ void insertStudents(Students *students)
 
 
 /**
- * find student and print
+ * check if student exists and print
  * @param students students list
  */
 void findStudents(Students students)
@@ -126,6 +126,25 @@ void findStudents(Students students)
     if(number != -1)
     {
         printStudent(students.students[number]);
+    }
+    else
+    {
+        puts(ERROR_NO_EXISTS_STUDENT);
+    }
+}
+
+
+/**
+ * check if student exists and update
+ * @param students students list
+ */
+void updateStudents(Students *students)
+{
+    int number = findStudent(*students, getInt(MIN_STUDENT_NUM, MAX_STUDENT_NUM, MSG_GET_STUDENT_NUM));
+
+    if(number != -1)
+    {
+        updateStudent(&(*students).students[number]);
     }
     else
     {
