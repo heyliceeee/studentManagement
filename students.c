@@ -79,3 +79,18 @@ int insertStudent(Students *students)
 
     return -1;
 }
+
+
+
+/**
+ * update student
+ * @param student updated
+ */
+void updateStudent(Student *student)
+{
+    readString((*student).name, MAX_STUDENT_NAME, MSG_GET_NAME);
+
+    (*student).birth.day = getInt(MIN_DAY, MAX_DAY, GET_BIRTH_DAY);
+    (*student).birth.month = getInt(MIN_MONTH, MAX_MONTH, GET_BIRTH_MONTH);
+    (*student).birth.year = getInt(MIN_YEAR, MAX_YEAR, GET_BIRTH_YEAR);
+}
