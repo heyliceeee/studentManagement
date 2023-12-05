@@ -32,3 +32,23 @@ void removeStudentData(Student *student)
 
     (*student).birth.day = (*student).birth.month = (*student).birth.year = 0;
 }
+
+
+/**
+ * return student number if exists, otherwise return -1
+ * @param students student list
+ * @param number student number
+ * @return student number if exists, otherwise return -1
+ */
+int findStudent(Students students, int number)
+{
+    for(int i=0; i < students.count; i++)
+    {
+        if(students.students[i].number == number)
+        {
+            return i;
+        }
+    }
+
+    return -1;
+}
