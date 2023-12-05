@@ -52,3 +52,30 @@ int findStudent(Students students, int number)
 
     return -1;
 }
+
+
+/**
+ * return student number if insert new student, otherwise return -1
+ * @param students students list
+ * @return student number if insert new student, otherwise return -1
+ */
+int insertStudent(Students *students)
+{
+    int number = getInt(MIN_STUDENT_NUM, MAX_STUDENT_NUM, MSG_GET_STUDENT_NUM);
+
+
+    if(findStudent(*students, number) == -1) //if no find student number
+    {
+        (*students).students[(*students).count].number = number;
+
+        readString((*students).students[(*students).count].name, MAX_STUDENT_NAME, MSG_GET_NAME);
+
+        (*students).students[(*students).count].birth.day = getInt(MIN_DAY, MAX_DAY, GET_BIRTH_DAY);
+        (*students).students[(*students).count].birth.month = getInt(MIN_MONTH, MAX_MONTH, GET_BIRTH_MONTH);
+        (*students).students[(*students).count].birth.year = getInt(MIN_YEAR, MAX_YEAR, GET_BIRTH_YEAR);
+
+        return (*students).count++;
+    }
+
+    return -1;
+}
