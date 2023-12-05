@@ -81,7 +81,6 @@ int insertStudent(Students *students)
 }
 
 
-
 /**
  * update student
  * @param student updated
@@ -93,4 +92,24 @@ void updateStudent(Student *student)
     (*student).birth.day = getInt(MIN_DAY, MAX_DAY, GET_BIRTH_DAY);
     (*student).birth.month = getInt(MIN_MONTH, MAX_MONTH, GET_BIRTH_MONTH);
     (*student).birth.year = getInt(MIN_YEAR, MAX_YEAR, GET_BIRTH_YEAR);
+}
+
+
+/**
+ * insert students in list
+ * @param students list
+ */
+void insertStudents(Students *students)
+{
+    if((*students).count < MAX_STUDENTS) //if list no full
+    {
+        if(insertStudent(students) == -1) //if no find student number
+        {
+            puts(ERROR_EXISTS_STUDENT);
+        }
+    }
+    else
+    {
+        puts(ERROR_FULL_LIST);
+    }
 }
