@@ -113,3 +113,22 @@ void insertStudents(Students *students)
         puts(ERROR_FULL_LIST);
     }
 }
+
+
+/**
+ * find student and print
+ * @param students students list
+ */
+void findStudents(Students students)
+{
+    int number = findStudent(students, getInt(MIN_STUDENT_NUM, MAX_STUDENT_NUM, MSG_GET_STUDENT_NUM));
+
+    if(number != -1)
+    {
+        printStudent(students.students[number]);
+    }
+    else
+    {
+        puts(ERROR_NO_EXISTS_STUDENT);
+    }
+}
