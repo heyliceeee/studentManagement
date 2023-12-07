@@ -42,7 +42,9 @@ void removeStudentData(Student *student)
  */
 int findStudent(Students students, int number)
 {
-    for(int i=0; i < students.count; i++)
+    int i;
+
+    for(i=0; i < students.count; i++)
     {
         if(students.students[i].number == number)
         {
@@ -163,7 +165,7 @@ void removeStudents(Students *students)
 
     if(number != -1)
     {
-        for(i=0; i < (*students).count - 1; i++)
+        for(i=number; i < (*students).count - 1; i++)
         {
             (*students).students[i] = (*students).students[i+1];
         }

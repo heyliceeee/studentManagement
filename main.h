@@ -23,7 +23,8 @@ int main()
         printf("\n1 - Insert");
         printf("\n2 - Search");
         printf("\n3 - Update");
-        printf("\n4 - Show");
+        printf("\n4 - Remove");
+        printf("\n5 - Show");
         printf("\n0 - Close");
         printf("\n---------------------------------------------------------------------");
 

@@ -45,10 +45,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-g"
-				},
-				{
-					"fragment" : "-std=gnu11"
+					"fragment" : "-g -std=gnu11 -fdiagnostics-color=always"
 				}
 			],
 			"includes" : 

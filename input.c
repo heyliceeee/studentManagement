@@ -10,6 +10,17 @@
 #define VALID_VALUE "The value entered is valid."
 
 
+/**
+ * clean input buffer
+ */
+void cleanInputBuffer()
+{
+    char ch;
+
+    while ((ch = getchar()) != '\n' && ch != EOF)
+    {}
+}
+
 
 /**
  * get integer value
@@ -20,14 +31,22 @@
  */
 int getInt(int minValue, int maxValue, char *msg)
 {
-    int number;
+    int number, firstTime = 1;
 
     do
     {
-        puts(INVALID_VALUE);
-
         printf(" %s", msg);
-        scanf(" %d", &number);
+        scanf("%d", &number);
+
+
+        if(firstTime == 0)
+        {
+            puts(INVALID_VALUE);
+            cleanInputBuffer();
+        }
+
+        firstTime = 0;
+        cleanInputBuffer();
 
     } while (number < minValue || number > maxValue);
 
@@ -45,14 +64,21 @@ int getInt(int minValue, int maxValue, char *msg)
  */
 float getFloat(float minValue, float maxValue, char *msg)
 {
-    float number;
+    float number, firstTime = 1;
 
     do
     {
-        puts(INVALID_VALUE);
+        printf("%s", msg);
+        scanf("%f", &number);
 
-        printf(" %s", msg);
-        scanf(" %f", &number);
+        if(firstTime == 0)
+        {
+            puts(INVALID_VALUE);
+            cleanInputBuffer();
+        }
+
+        firstTime = 0;
+        cleanInputBuffer();
 
     } while (number < minValue || number > maxValue);
 
@@ -69,14 +95,22 @@ float getFloat(float minValue, float maxValue, char *msg)
  */
 double getDouble(double minValue, double maxValue, char *msg)
 {
-    double number;
+    double number, firstTime = 1;
 
     do
     {
-        puts(INVALID_VALUE);
+        printf("%s", msg);
+        scanf("%lf", &number);
 
-        printf(" %s", msg);
-        scanf(" %lf", &number);
+
+        if(firstTime == 0)
+        {
+            puts(INVALID_VALUE);
+            cleanInputBuffer();
+        }
+
+        firstTime = 0;
+        cleanInputBuffer();
 
     } while (number < minValue || number > maxValue);
 
@@ -93,8 +127,9 @@ char getChar(char *msg)
 {
     char value;
 
-    printf(" %s", msg);
+    printf("%s", msg);
     value = getchar();
+    cleanInputBuffer();
 
     return value;
 }
@@ -108,8 +143,7 @@ char getChar(char *msg)
  */
 void readString(char *string, int length, char *msg)
 {
-    printf(" %s", msg);
-
+    printf("%s", msg);
 
     if(fgets(string, length, stdin) != NULL)
     {
@@ -121,7 +155,7 @@ void readString(char *string, int length, char *msg)
 
         } else
         {
-            printf(" %s", string);
+            cleanInputBuffer();
         }
     }
 }

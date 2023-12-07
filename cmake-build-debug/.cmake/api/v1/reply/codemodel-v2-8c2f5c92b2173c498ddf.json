@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "studentManagement::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-studentManagement-Debug-73fdce3a4a4da923f0d2.json",
+					"jsonFile" : "target-studentManagement-Debug-bf0aee57e583c467f5cd.json",
 					"name" : "studentManagement",
 					"projectIndex" : 0
 				}
@@ -55,6 +55,6 @@
 	"version" : 
 	{
 		"major" : 2,
-		"minor" : 4
+		"minor" : 5
 	}
 }
